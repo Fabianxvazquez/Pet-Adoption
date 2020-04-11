@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_160548) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+
   create_table "pets", force: :cascade do |t|
     t.string "breed"
     t.boolean "neutered"

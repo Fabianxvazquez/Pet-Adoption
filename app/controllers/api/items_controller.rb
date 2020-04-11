@@ -1,24 +1,26 @@
 class Api::ItemsController < ApplicationController
+  before_action :set_pet 
   def index
-    pet = Pet.find(params[:pet_id])
-    render json: pet.items
+    render json: @pet.items
   end
 
   def create
-    pet = Pet.find(params[:pet_id])
-    render json: pet.items.create(item_params)
+    item = @pet.items.new(item_params)
+    if item.save
+      render json: item
+    else
+      render json: @pet.item.errors, status: 422
+    end
   end
 
   def show
-    pet = Pet.find(params[:pet_id])
-    render json: pet.items.find(params[:id])
+    render json: @pet.items.find(params[:id])
   end 
 
   def update
-    pet = Pet.find(params[:pet_id])
-    item = pet.items.find(params[:id])
+    item = @pet.items.find(params[:id])
     item.update_attributes(item_params)
-    render json: pet.items.find(params[:id])
+    render json: @pet.items.find(params[:id])
   end
 
   def destroy
@@ -26,7 +28,10 @@ class Api::ItemsController < ApplicationController
   end
 
   private 
+  def set_pet
+    @pet = Pet.find(params[:pet_id])
+  end
   def item_params
-    params.require(:item).permit(:name, :qty, :category, :pet_id)
+    params.require(:item).permit(:name, :qty, :category)
   end 
 end
