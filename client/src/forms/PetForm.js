@@ -11,18 +11,18 @@ class PetForm extends React.Component {
         image: "",
         size: "",
         sex: "",
-        organization_id: this.props.organization_id
+        organization_id: this.props.location.organization_id
     };
 
     handleSubmit = e => {
+        const { organization_id} = this.state
         e.preventDefault();
-        axios.post(`/api/organizations/1/pets`, this.state).then(res => {
-            this.setState({state: res.data});
-            // this.props.history.push(`/organizations/${this.state.organization_id}`);
+        axios.post(`/api/organizations/${ organization_id }/pets`, this.state).then(res => {
+        
+            this.props.history.goBack()
         }).catch((err) => {
             console.log(err)
         })
-
     };
 
     handleChange = e => {
@@ -48,6 +48,7 @@ class PetForm extends React.Component {
                             onChange={this.handleChange}
                             required
                         />
+                        <br />
                         <Form.Input
                             label="Neutered"
                             name="neutered"
@@ -56,6 +57,7 @@ class PetForm extends React.Component {
                             onChange={this.handleChange}
                             required
                         />
+
                         <Form.Input
                             label="Species"
                             name="species"

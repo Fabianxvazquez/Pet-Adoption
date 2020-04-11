@@ -23,7 +23,9 @@ class Api::PetsController < ApplicationController
   end
 
   def destroy
-    pet.find(params[:id]).destroy
+   
+    Pet.destroy(params[:id])
+    
   end
 
   private 

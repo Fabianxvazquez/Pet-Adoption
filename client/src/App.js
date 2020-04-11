@@ -13,6 +13,7 @@ import FindYourPet from './components/FindYourPet';
 import EditOrganizationForm from './components/EditOrganizationForm';
 import CreateOrganizationForm from './components/CreateOrganizationForm';
 import PetForm from './forms/PetForm';
+import EditPetForm from "./components/EditPetForm"
 
 
 const App = () => (
@@ -29,6 +30,7 @@ const App = () => (
         <ProtectedRoute exact path="/organization/create" component={CreateOrganizationForm} />
         <ProtectedRoute exact path="/pet/create" component={PetForm} />
         <ProtectedRoute exact path="/organizations/:organization_id/pets/:id" component={PetShowPage} />
+        <ProtectedRoute exact path="/organizations/:organization_id/pets/:id/edit" component={EditPetForm} />
         <Route component={NoMatch} />
       </Switch>
     </Container>

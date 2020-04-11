@@ -19,7 +19,7 @@ const Pets = (props) => {
     return pets.map( pet => (
       <Card key= {`pet-${pet.id}`}>
       <Link to={{ pathname: `/organizations/${organization_id}/pets/${pet.id}` }}>
-        <Image style={{cursor: 'pointer'}} src={pet.image} wrapped ui={false} />
+        <Image style={{cursor: 'pointer'}} src={pet.image} />
       </Link>
       <Card.Content>
         <Card.Header>{pet.species}</Card.Header>

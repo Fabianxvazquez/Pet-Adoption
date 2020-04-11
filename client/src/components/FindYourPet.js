@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Card, Button, Dropdown, Header } from 'semantic-ui-react'
 import Pets from './Pets'
 import { Link } from 'react-router-dom'
+import styled from "styled-components";
 
 
 const FindYourPet = () => {
@@ -39,7 +40,7 @@ const FindYourPet = () => {
 
   const renderOrganizations = (id) => {
     return organizations.map(organization => (
-      <>
+      <StyledCon>
         <Card key={`organization-${id}`}>
           <Card.Content>
             <Card.Header>{organization.name}</Card.Header>
@@ -55,9 +56,12 @@ const FindYourPet = () => {
               <Button onClick={() => deleteOrganization(organization.id)}> Delete organization </Button>
             </div>
           </Card.Content>
+          <Link to={{pathname:'/pet/create', organization_id: organization.id }}>
+           <Button> Add a Pet </Button>
+          </Link>
           <Pets organization_id={organization.id} />
         </Card>
-      </>
+      </StyledCon>
     ))
   }
 
@@ -68,13 +72,16 @@ const FindYourPet = () => {
         <Button>Create an Organization</Button>
       </Link>
       <Header> Find Your Pet </Header>
-      <Link to={'/pet/create'}>
-        <Button> Add a Pet </Button>
-      </Link>
+    
       <br />
       {renderOrganizations()}
     </>
   )
 }
 
+const StyledCon = styled.div`
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+`;
 export default FindYourPet
