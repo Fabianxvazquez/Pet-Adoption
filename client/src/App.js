@@ -11,7 +11,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import FindYourPet from './components/FindYourPet';
 import EditOrganizationForm from './components/EditOrganizationForm';
 import CreateOrganizationForm from './components/CreateOrganizationForm';
-// import PetShowPage from './components/PetShowPage';
+import PetShowPage from './components/PetShowPage';
 
 const App = () => (
   <Fragment>
@@ -25,7 +25,7 @@ const App = () => (
         <ProtectedRoute exact path="/findYourPet" component={FindYourPet} />
         <ProtectedRoute exact path="/organization/:organization_id/edit" component={EditOrganizationForm} />
         <ProtectedRoute exact path="/organization/create" component={CreateOrganizationForm} />
-        {/* <ProtectedRoute exact path="/organizations/:organization_id/pets/:id" component={petShowPage} /> */}
+        <ProtectedRoute exact path="/organizations/:organization_id/pets/:id" component={PetShowPage} />
         <Route component={NoMatch} />
       </Switch>
     </Container>
