@@ -35,6 +35,13 @@ Organization.create(
   contact_email: 'humane@email.com',
   zipcode: '84091')
 
+  Item.create(
+    name: 'tennis ball',
+    category: 'toy',
+    qty: 3,
+    pet_id: 1 
+
+  )
 
 Pet.create(
   breed: 'German Shepherd',
