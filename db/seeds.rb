@@ -1,3 +1,4 @@
+password = 'password'
 
 User.create( 
   first_name: 'Holy',
@@ -32,7 +33,7 @@ Organization.create(
   name: 'Humane Society of Sandy',
   contact_phone: '801-223-1234',
   contact_email: 'humane@email.com',
-  Zipcode: '84091')
+  zipcode: '84091')
 
 
 Pet.create(
@@ -93,7 +94,7 @@ Organization.create(
   name: 'Humane Society of Salt Lake City',
   contact_phone: '801-123-5231',
   contact_email: 'humaneSLC@email.com',
-  Zipcode: '84098')
+  zipcode: '84098')
 
 Pet.create(
   breed: 'German Shepherd',
@@ -149,10 +150,10 @@ Pet.create(
     )
 
 Organization.create(
-  name: 'Daras Pet Rescue,
+  name: 'Daras Pet Rescue',
   contact_phone: '801-512-8521',
   contact_email: 'DPetRescue@email.com',
-  Zipcode: '84012')
+  zipcode: '84012')
 
 Pet.create(
   breed: 'German Shepherd',

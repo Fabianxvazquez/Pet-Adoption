@@ -5,7 +5,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
-    Item = Pet.find(params[:pet_id])
+    pet = Pet.find(params[:pet_id])
     render json: pet.items.create(item_params)
   end
 
@@ -29,3 +29,4 @@ class Api::ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :qty, :category, :pet_id)
   end 
+end
