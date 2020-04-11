@@ -40,7 +40,6 @@ class Register extends React.Component {
           <Form.Input
             label="First Name"
             required
-            
             name='first_name'
             value={first_name}
             placeholder='First Name'
