@@ -28,7 +28,7 @@ class Api::OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
   end
 
-  def organization_paramsmak
+  def organization_params
     params.require(:organization).permit(:name, :contact_phone, :contact_email, :zipcode)
   end 
 end

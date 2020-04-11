@@ -16,7 +16,7 @@ class PetForm extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        axios.post(`/api/organizations/${this.props.organization_id}/pets`, this.state).then(res => {
+        axios.post(`/api/organizations/1/pets`, this.state).then(res => {
             this.setState({state: res.data});
             // this.props.history.push(`/organizations/${this.state.organization_id}`);
         }).catch((err) => {
