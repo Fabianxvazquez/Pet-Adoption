@@ -8,6 +8,8 @@ import { Switch, Route, } from 'react-router-dom';
 import { Container, } from "semantic-ui-react";
 import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
+import FindYourPet from './components/FindYourPet';
+import PetShowPage from './components/PetShowPage';
 
 const App = () => (
   <Fragment>
@@ -18,6 +20,8 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <ProtectedRoute exact path="/findYourPet" component={findYourPet} />
+        <ProtectedRoute exact path="/organizations/:organization_id/pets/:id" component={petShowPage} />
         <Route component={NoMatch} />
       </Switch>
     </Container>
@@ -26,4 +30,3 @@ const App = () => (
 )
 
 export default App;
-
