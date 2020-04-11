@@ -3,10 +3,10 @@ import axios from 'axios';
 import { Form, Button } from 'semantic-ui-react';
 
 const EditOrganizationForm = (props) =>{
-  const { organizations } = props.history.location
-  const [ organizationsChange , setOrganizationsChange ] = useState({organizations})
-  const { organization_id} = props.match.params.organization_id;
-  console.log(props)
+  const { organization } = props.location
+  const [ organizationsChange , setOrganizationsChange ] = useState({...organization})
+  const { organization_id} = props.match.params;
+
   const handleSubmit = e => {
     e.preventDefault()
     axios.put(`/api/organizations/${organization_id}`, organizationsChange).then(res => {

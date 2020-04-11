@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Card } from 'semantic-ui-react'
+import { Card, Image, Grid, Button } from 'semantic-ui-react'
 
 
 const Pets = (props) => {
@@ -16,15 +16,17 @@ const Pets = (props) => {
 
   const renderPets = () => { 
     return pets.map( pet => (
-      <div key= {`pet-${pet.id}`}>
-        {pet.image}
-        <br />
-        {pet.species}
-        <br />
+      <Card key= {`pet-${pet.id}`}>
+      <Image src={pet.image} wrapped ui={false} />
+      <Card.Content>
+        <Card.Header>{pet.species}</Card.Header>
+        <Card.Description>
         {pet.breed}
-        <br />
-        <br />
-      </div>
+        </Card.Description>
+        <Button icon="thumbs up" />
+      </Card.Content>
+    </Card>
+
     ))
   }
   
